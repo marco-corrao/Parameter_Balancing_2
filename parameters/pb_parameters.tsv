@@ -1,0 +1,11 @@
+parameter	type	options	value	description	notes
+reactions_to_include	comma-separated-list	NA		use to ONLY include a subset of reactions in the balancing	if specified <reactions_to_exclude> will be ignored
+reactions_to_exclude	comma-separated-list	NA		use to exclude a subset of reactions from the balancing	only valid if <reactions_to_include> is left blank
+irreversibility_detection	string	user-specified,drg0_treshold,sbml	drg0_treshold	how to determine irreversible reactions. user-specified: use the irreversible_reactions parameter; drg0_threshold:consider irreversible reactions with mean data value less than parameter drg0_irreversibility_threshold; sbml: use reversibility specified in the sbml	
+irreversible_reactions	comma-separated-list	NA		list of reactions to be considered irreversible, whenever irreversibility_detection==user-specified	
+drg0_irreversibility_threshold	float	NA	-50	threshold below which a reaction is treated as irreversible when irreversibility_detection==drg0_threshold	
+compartments_to_include	comma-separated-list	NA		use to ONLY include a subset of compartments in the balancing	if specified <compartments_to_exclude> will be ignored
+compartments_to_exclude	comma-separated-list	NA		use to exclude a subset of reactions from the balancing	only valid if <compartments_to_include> is left blank
+spontaneuous_gpr_id	comma-separated-list	NA	s0001	a list of gene ids corresponding to fictitious genes (e.g. for spontaneuous reactions)	NA
+zero_variance_entries	string	fix,eps	eps	fix: entries with zero-variance are fixed as constants and excluded from the balancing; eps: zero variance entries are simply changed to have variance equal to a small epsilon and still treated as probabilistic values	
+use_data_augmentation	bool	True,False	True	whether to use data augmentation to enforce realistic values when data for a parameter is missing	
